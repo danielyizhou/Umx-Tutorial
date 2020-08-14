@@ -1,0 +1,31 @@
+digraph G {
+
+	splines="TRUE";
+	# Latents
+
+	# Manifests
+	mpg [shape = square];
+	disp [shape = square];
+	wt [shape = square];
+	 one [shape = triangle];
+
+	#Variances/residuals
+	mpg -> mpg[label="35.19", dir=both, headport=s, tailport=s];
+	disp -> disp[label="14880.58", dir=both, headport=s, tailport=s];
+	wt -> wt[label="0.93", dir=both, headport=s, tailport=s];
+
+
+	# Single arrow paths
+
+	# Covariances
+
+	# Means paths
+	one -> mpg [label="20.09"];
+	one -> disp [label="230.72"];
+	one -> wt [label="3.22"];
+
+	{rank=min; };
+	{rank=same; mpg disp wt};
+
+
+}
