@@ -15,7 +15,8 @@ model2 <- umxRAM("big and heavy", data = data,
                  umxPath(c("disp", "wt"), to = "mpg"),        #one headed paths from disp and wt to mpg 
                  umxPath(cov = c("disp", "wt")),              #allow predictors to covary
                  umxPath(v.m. = c("disp", "wt", "mpg"))        #give objects variance and mean
-                 )
+)
 plot(model2)
 
 umxCompare(model2, model1)
+umxSummary(model2, show = "std")  #shows the parameter/path estimates 
