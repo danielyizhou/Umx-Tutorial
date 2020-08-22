@@ -5,14 +5,14 @@ data <- mtcars
   #wt = weight of the engine 
   #mpg = miles per gallon of gas 
 
-#Independence model (all factors are independent of each other)
+#Independence model (all factors are independent of each other)--------------------------------------------------------
 
 model1 <- umxRAM("independence_model", data = mtcars,           
                  umxPath(v.m. = c("disp", "wt", "mpg")))        #this function assigns variances and means to factors
 umxSummary(model1)
 plot(model1)
 
-#Model 2 
+#Model 2 -------------------------------------------------------------------------------------------------------------
 
 model2 <- umxRAM("big and heavy", data = data,
                  umxPath(c("disp", "wt"), to = "mpg"),        #one headed paths from disp and wt to mpg 
@@ -34,7 +34,7 @@ coef(linearmodel1)
 confint(linearmodel1)
 
 
-# Dropping paths ----------------------------------------------------------
+# Dropping paths, to ultimately compare models ----------------------------------------------------------
 
 #umxModify allows you to set a certain path coefficient to 0, effectively dropping it. 
 model3 <- umxModify(model2, update = "disp_to_mpg", name = "disp_doesnt_matter")
